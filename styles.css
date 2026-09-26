@@ -115,7 +115,7 @@ h2 {
 
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(110px, 1fr));
+  grid-template-columns: repeat(4, minmax(110px, 1fr));
   gap: 10px;
 }
 
@@ -278,6 +278,41 @@ label {
   color: var(--green);
 }
 
+.tag.pass {
+  background: rgba(77, 118, 86, 0.18);
+  color: var(--green);
+}
+
+.tag.backup {
+  background: rgba(109, 99, 120, 0.16);
+  color: var(--ink);
+}
+
+.tag.used-backup {
+  background: rgba(52, 125, 137, 0.16);
+  color: var(--cyan);
+}
+
+.tag.risk,
+.tag.invalid {
+  background: rgba(181, 77, 72, 0.16);
+  color: var(--red);
+}
+
+.tag.risk-soon {
+  background: rgba(212, 155, 53, 0.2);
+  color: #8a5e10;
+}
+
+.inline-hint {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.danger-number {
+  color: var(--red);
+}
+
 .segment-note {
   margin: 0;
   color: var(--muted);
@@ -320,6 +355,156 @@ label {
   line-height: 1.5;
 }
 
+.warning-group {
+  display: grid;
+  gap: 8px;
+}
+
+.warning-group + .warning-group {
+  margin-top: 12px;
+}
+
+.warning-group h3 {
+  margin: 0;
+  font-size: 13px;
+}
+
+.risk-text {
+  color: var(--red);
+}
+
+.risk-soon-text {
+  color: #8a5e10;
+}
+
+.form-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.repair-panel {
+  margin-top: 16px;
+}
+
+.repair-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.repair-card {
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  gap: 12px;
+  align-items: start;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf7;
+  padding: 12px;
+}
+
+.repair-card.is-overdue {
+  border-color: rgba(181, 77, 72, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(181, 77, 72, 0.18);
+}
+
+.repair-main {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.work-order {
+  display: grid;
+  gap: 8px;
+  border-top: 1px dashed var(--line);
+  padding-top: 10px;
+}
+
+.work-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 0.9fr;
+  gap: 8px;
+}
+
+.work-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.work-actions button {
+  padding: 7px 12px;
+}
+
+.work-error {
+  color: var(--red);
+  font-size: 12px;
+  min-height: 14px;
+}
+
+.archive-item {
+  display: grid;
+  gap: 4px;
+  border: 1px solid rgba(181, 77, 72, 0.25);
+  border-radius: 6px;
+  background: rgba(181, 77, 72, 0.06);
+  padding: 8px;
+}
+
+.archive-text {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(31, 36, 40, 0.45);
+  padding: 16px;
+  z-index: 20;
+}
+
+.modal {
+  display: grid;
+  gap: 10px;
+  width: min(440px, 100%);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.modal h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.modal-hint {
+  margin: 0;
+  color: var(--red);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 @media (max-width: 1120px) {
   .hero {
     align-items: stretch;
@@ -330,6 +515,10 @@ label {
   .layout {
     grid-template-columns: 1fr;
   }
+
+  .repair-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 660px) {
@@ -338,15 +527,20 @@ label {
   }
 
   .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .segment-card,
+  .repair-card {
     grid-template-columns: 1fr;
   }
 
-  .segment-card {
+  .work-grid {
     grid-template-columns: 1fr;
   }
 
   .segment-actions {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .segment-actions button {
