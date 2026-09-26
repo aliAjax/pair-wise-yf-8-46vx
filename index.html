@@ -15,16 +15,24 @@
         </div>
         <div class="hero-stats">
           <div>
-            <span>总时长</span>
+            <span>可放映时长</span>
             <strong id="totalDuration">0:00</strong>
+          </div>
+          <div>
+            <span>片段数</span>
+            <strong id="segmentCount">0</strong>
           </div>
           <div>
             <span>破损片段</span>
             <strong id="damageCount">0</strong>
           </div>
           <div>
-            <span>片段数</span>
-            <strong id="segmentCount">0</strong>
+            <span>待修复</span>
+            <strong id="pendingCount">0</strong>
+          </div>
+          <div>
+            <span>超期风险</span>
+            <strong id="overdueCount">0</strong>
           </div>
         </div>
       </header>
@@ -47,7 +55,7 @@
         </label>
         <label>
           搜索
-          <input id="searchInput" type="search" placeholder="片段编号或备注" />
+          <input id="searchInput" type="search" placeholder="片段编号、备注或负责人" />
         </label>
         <button id="exportBtn">导出清单</button>
       </section>
@@ -99,15 +107,28 @@
         <section class="panel list-panel">
           <div class="panel-head">
             <h2>放映顺序</h2>
-            <span>拖拽片段调整顺序</span>
+            <span>复检通过或启用备用片段后，片段才会进入可放映顺序</span>
           </div>
-          <div id="segmentList" class="segment-list"></div>
+          <div id="segmentGroups">
+            <h3 class="group-title">可放映顺序 <span id="screenableMeta" class="group-meta"></span></h3>
+            <div id="screenableList" class="segment-list"></div>
+            <h3 class="group-title">待修复 · 复检通过前不进入放映 <span id="pendingMeta" class="group-meta"></span></h3>
+            <div id="pendingList" class="segment-list"></div>
+          </div>
         </section>
 
         <aside class="panel warning-panel">
           <h2>试映前核对</h2>
           <div id="warningList" class="warning-list"></div>
         </aside>
+      </section>
+
+      <section class="panel repair-panel">
+        <div class="panel-head">
+          <h2>修复工单</h2>
+          <span id="repairMeta">划痕、齿孔、接片问题片段在此登记负责人、预计完成时间与处理结果</span>
+        </div>
+        <div id="repairList" class="repair-list"></div>
       </section>
     </main>
 

@@ -115,7 +115,7 @@ h2 {
 
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 10px;
 }
 
@@ -320,6 +320,180 @@ label {
   line-height: 1.5;
 }
 
+.group-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 14px 0 10px;
+  font-size: 14px;
+}
+
+#segmentGroups .group-title:first-child {
+  margin-top: 0;
+}
+
+.group-meta {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.segment-card.pending {
+  border-style: dashed;
+  border-color: rgba(212, 155, 53, 0.65);
+  background: #fbf6e9;
+}
+
+.tag.backup {
+  background: rgba(52, 125, 137, 0.16);
+  color: var(--cyan);
+}
+
+.tag.hold {
+  background: rgba(212, 155, 53, 0.18);
+  color: #8a6414;
+}
+
+.repair-line {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.repair-panel {
+  margin-top: 16px;
+}
+
+.repair-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 12px;
+}
+
+.repair-card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf7;
+  padding: 12px;
+}
+
+.repair-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.repair-head strong {
+  font-size: 16px;
+}
+
+.repair-status {
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.repair-status.is-pending {
+  background: rgba(181, 77, 72, 0.13);
+  color: var(--red);
+}
+
+.repair-status.is-passed {
+  background: rgba(77, 118, 86, 0.14);
+  color: var(--green);
+}
+
+.repair-status.is-backup {
+  background: rgba(52, 125, 137, 0.14);
+  color: var(--cyan);
+}
+
+.repair-status.is-done {
+  background: rgba(105, 113, 121, 0.14);
+  color: var(--muted);
+}
+
+.repair-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.due-badge {
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.due-badge.overdue {
+  background: var(--red);
+  color: #fff;
+}
+
+.due-badge.soon {
+  background: rgba(212, 155, 53, 0.2);
+  color: #8a6414;
+}
+
+.backup-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.backup-toggle input {
+  width: auto;
+}
+
+.pass-archive {
+  border-top: 1px dashed var(--line);
+  padding-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.pass-archive strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.pass-archive ul {
+  display: grid;
+  gap: 3px;
+  margin: 0;
+  padding-left: 16px;
+}
+
+.warning-group {
+  display: grid;
+  gap: 9px;
+}
+
+.warning-group h3 {
+  margin: 0 0 2px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.warning-item.overdue {
+  border-color: rgba(181, 77, 72, 0.55);
+  background: rgba(181, 77, 72, 0.14);
+}
+
+.warning-item.passed {
+  border-color: rgba(77, 118, 86, 0.4);
+  background: rgba(77, 118, 86, 0.1);
+}
+
 @media (max-width: 1120px) {
   .hero {
     align-items: stretch;
@@ -342,6 +516,10 @@ label {
   }
 
   .segment-card {
+    grid-template-columns: 1fr;
+  }
+
+  .repair-grid {
     grid-template-columns: 1fr;
   }
 
